@@ -1,0 +1,95 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (5.1.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    builder (3.2.3)
+    byebug (9.1.0)
+    concurrent-ruby (1.0.5)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
+    eeepub-with-cover-support (0.8.8)
+      builder
+      rubyzip
+    ffi (1.9.18)
+    http (2.2.2)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (1.0.3)
+    http_parser.rb (0.6.0)
+    i18n (0.9.1)
+      concurrent-ruby (~> 1.0)
+    kitabu (2.1.0)
+      activesupport
+      eeepub-with-cover-support
+      i18n
+      nokogiri
+      notifier
+      redcarpet
+      rouge (~> 2.0)
+      rubyzip
+      sass
+      sass-globbing
+      thor
+      zip-zip
+    mini_portile2 (2.3.0)
+    minitest (5.11.1)
+    mustermann (1.0.1)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
+    notifier (0.5.2)
+    public_suffix (3.0.1)
+    rack (2.0.3)
+    rack-protection (2.0.0)
+      rack
+    rb-fsevent (0.10.2)
+    rb-inotify (0.9.10)
+      ffi (>= 0.5.0, < 2)
+    redcarpet (3.4.0)
+    redd (0.8.8)
+      http (~> 2.2)
+    rouge (2.2.1)
+    rubyzip (1.2.1)
+    sass (3.5.4)
+      sass-listen (~> 4.0.0)
+    sass-globbing (1.1.5)
+      sass (>= 3.1)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+    sinatra (2.0.0)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0)
+      tilt (~> 2.0)
+    thor (0.20.0)
+    thread_safe (0.3.6)
+    tilt (2.0.8)
+    tzinfo (1.2.4)
+      thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
+    zip-zip (0.3)
+      rubyzip (>= 1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  byebug
+  kitabu
+  redd (~> 0.7)
+  sinatra
+
+BUNDLED WITH
+   1.16.1
