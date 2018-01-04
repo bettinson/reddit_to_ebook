@@ -12,15 +12,17 @@ get '/hello/:name' do
 end
 
 # Starts job to generate book
-post '/generate' do 
-  reddit_link = params['reddit_link']
+post '/generate_askreddit' do 
+  # reddit_link = params['reddit_link']
 
-  if reddit_link.empty?
-    return 'No link specified!'
-  end
-
-  file = RedditToBook.generate(reddit_link)
+  file = RedditToBook.generate_askreddit
   send_file(file, :disposition => 'attachment')
-  return 'Success!'
+end
+
+post '/generate_writing_prompt' do 
+  # reddit_link = params['reddit_link']
+
+  file = RedditToBook.generate_writing_prompt
+  send_file(file, :disposition => 'attachment')
 end
 

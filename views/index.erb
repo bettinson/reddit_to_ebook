@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='UTF-8' />
+    <meta charset='UTF-8'/>
     <title>Reddit to Kindle</title>
+    <link rel = "stylesheet"
+           type = "text/css"
+           href = "style.css" />
   </head>
   <body class='container'>
-    <h1>What do you want to read?</h1>
-    <form action='generate' method='post'>
-      <p>Reddit link: <input type="text" name="reddit_link"></p>
-      <button type='submit' class='btn btn-primary'>Send to Kindle</button>
+    <h1>Download top posting of which subbredit?</h1>
+    <form action='generate_askreddit' method='post'>
+      <button type='submit' class='btn btn-primary'>AskReddit</button>
+    </form>
+    <form action='generate_writing_prompt' method='post'>
+      <button type='submit' class='btn btn-primary'>WritingPrompts</button>
     </form>
   </body>
 </html>

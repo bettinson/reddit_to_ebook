@@ -1,19 +1,24 @@
 require "redd"
 
 module RedditToBook
-  def self.generate(link)
-    r = Redd.it(
-      user_agent: 'Reddit to Book',
-      client_id:  '596caC4b5G5vzQ',
-      secret:     '9nH7IYZmCbPBM1nmc5Y0x1aAfaA'
-    )
+  def self.generate_askreddit
+    generate('Askreddit')
+  end
 
-    askreddit = r.subreddit("askreddit")
+  def self.generate_writing_prompt
+    generate('WritingPrompts')
+  end
+
+  private
+
+  def self.generate(subreddit)
+    askreddit = client.subreddit(subreddit)
     top_posts = []
 
     comments_of_top_post = []
-    top = askreddit.top.first
-    top.comments.each do |c|
+    post = askreddit.top.first
+
+    post.comments.each do |c|
       begin
         comments_of_top_post << c.body
       rescue
@@ -25,7 +30,7 @@ module RedditToBook
     # File would be a hash of the subreddit on current day
     # If it exists we would load that first?
     file = File.new('./top.txt', 'w')
-    file.write("Top comments of the top post at the moment \n\n\n")
+    file.write("#{post.title} \n\n\n")
     while comments_of_top_post[i]
       file.write(comments_of_top_post[i])
       file.write("\n\n ===*=== \n\n")
@@ -35,8 +40,12 @@ module RedditToBook
     return file
     # system("cd mybook && kitabu export")
   end
-  
-  def self.hi
-    return 'Hi'
+
+  def self.client
+    @r ||= Redd.it(
+      user_agent: 'Reddit to Book',
+      client_id:  '596caC4b5G5vzQ',
+      secret:     '9nH7IYZmCbPBM1nmc5Y0x1aAfaA'
+    )
   end
 end
