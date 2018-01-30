@@ -2,6 +2,8 @@
 require 'sinatra'
 require 'byebug'
 require './lib/reddit_convert.rb'
+require './lib/applicable_subreddits.rb'
+
 
 get '/' do 
   erb :index
@@ -12,17 +14,9 @@ get '/hello/:name' do
 end
 
 # Starts job to generate book
-post '/generate_askreddit' do 
-  # reddit_link = params['reddit_link']
+post '/generate' do 
+  subreddit = params['subreddit']
 
-  file = RedditToBook.generate_askreddit
+  file = RedditToBook.generate(subreddit)
   send_file(file, :disposition => 'attachment')
 end
-
-post '/generate_writing_prompt' do 
-  # reddit_link = params['reddit_link']
-
-  file = RedditToBook.generate_writing_prompt
-  send_file(file, :disposition => 'attachment')
-end
-

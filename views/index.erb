@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <head>
     <meta charset='UTF-8'/>
     <title>Reddit to Kindle</title>
@@ -9,11 +10,17 @@
   </head>
   <body class='container'>
     <h1>Download top posting of which subbredit?</h1>
-    <form action='generate_askreddit' method='post'>
-      <button type='submit' class='btn btn-primary'>AskReddit</button>
-    </form>
-    <form action='generate_writing_prompt' method='post'>
-      <button type='submit' class='btn btn-primary'>WritingPrompts</button>
-    </form>
+    <% ApplicableSubreddits::LIST.each do |sub| %>
+      <form action='generate' method='post'>
+        <button type='submit' name="subreddit" value="<%= sub %>" class='btn btn-primary'><%= sub %></button>
+      </form>
+    <% end %>
+    <h2>What is this?</h2>
+    <p> This site allows you to download the top posting of a number of writing subreddits, for offline and distraction
+    free reading. Kindle support is coming soon.</p>
+
+    <footer>
+      <p>Made by <a href="https://twitter.com/mattbettinson/">@mattbettinson</a></p>
+    </footer>
   </body>
 </html>

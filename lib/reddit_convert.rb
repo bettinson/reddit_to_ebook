@@ -5,10 +5,6 @@ module RedditToBook
     generate('Askreddit')
   end
 
-  def self.generate_writing_prompt
-    generate('WritingPrompts')
-  end
-
   private
 
   def self.generate(subreddit)
@@ -29,8 +25,8 @@ module RedditToBook
     i = 0
     # File would be a hash of the subreddit on current day
     # If it exists we would load that first?
-    file = File.new('./top.txt', 'w')
-    file.write("#{post.title} \n\n\n")
+    file = File.new("./#{subreddit} #{Time.now}.md", 'w')
+    file.write("# #{post.title} \n\n\n")
     while comments_of_top_post[i]
       file.write(comments_of_top_post[i])
       file.write("\n\n ===*=== \n\n")
