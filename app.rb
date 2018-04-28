@@ -13,7 +13,7 @@ post '/generate' do
   subreddit = params['subreddit']
   file = RedditToBook.generate(subreddit)
   kindle_file = GenerateMobi.generate(file)
-  File.delete(file)
+  # File.delete(file)
   send_file(kindle_file, :disposition => 'attachment')
-  File.delete(kindle_file)
+  # File.delete(kindle_file)
 end
