@@ -27,6 +27,9 @@ module RedditToBook
     # If it exists we would load that first?
     file = File.new("./#{subreddit} #{Time.now}.html", 'w')
     file.write("<h1> #{post.title} </h1>")
+    file.write("<body>")
+    file.write("<p> #{post.title} </p>")
+    file.write("</body>")
     
     while comments_of_top_post[i]
       file.write("<body>")

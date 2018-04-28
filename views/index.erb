@@ -9,7 +9,7 @@
            href = "style.css" />
   </head>
   <body class='container'>
-    <h1>Download top posting of which subbredit?</h1>
+    <h1>Download Kindle version of the top posting of which subbredit?</h1>
     <% ApplicableSubreddits::LIST.each do |sub| %>
       <form action='generate' method='post'>
         <button type='submit' name="subreddit" value="<%= sub %>" class='btn btn-primary'><%= sub %></button>
