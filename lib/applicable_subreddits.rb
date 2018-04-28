@@ -2,11 +2,6 @@ module ApplicableSubreddits
   LIST = [
     'AskReddit',
     'WritingPrompts',
-    'NoSleep',
-    'ShortScaryStories',
-    'DarkTales',
-    'CryoSleep',
-    'ShortScifiStories',
-    'FantasyWriters'
+    'NoSleep'
   ].freeze
 end
