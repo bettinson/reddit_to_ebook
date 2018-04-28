@@ -16,7 +16,7 @@ module RedditToBook
 
     post.comments.each do |c|
       begin
-        comments_of_top_post << c.body
+        comments_of_top_post << c.body.encode("Windows-1252").force_encoding("UTF-8")
       rescue
         puts "Tried to get a body that doesen't exist"
       end
@@ -26,14 +26,14 @@ module RedditToBook
     # File would be a hash of the subreddit on current day
     # If it exists we would load that first?
     file = File.new("./#{subreddit} #{Time.now}.html", 'w')
-    file.write("<h1> #{post.title} </h1>")
+    file.write("<h1> #{post.title.encode("Windows-1252").force_encoding("UTF-8")} </h1>")
     file.write("<body>")
-    file.write("<p> #{post.title} </p>")
+    file.write("<p> #{post.title.encode("Windows-1252").force_encoding("UTF-8")} </p>")
     file.write("</body>")
     
     while comments_of_top_post[i]
       file.write("<body>")
-      file.write(comments_of_top_post[i].encode("Windows-1252").force_encoding("UTF-8"))
+      file.write(comments_of_top_post[i])
       file.write("<br><br> ===*=== <br><br>")
       file.write("</body>")
       i += 1
