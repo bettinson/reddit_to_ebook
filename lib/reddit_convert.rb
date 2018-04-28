@@ -33,7 +33,7 @@ module RedditToBook
     
     while comments_of_top_post[i]
       file.write("<body>")
-      file.write(comments_of_top_post[i])
+      file.write(comments_of_top_post[i].encode("Windows-1252").force_encoding("UTF-8"))
       file.write("<br><br> ===*=== <br><br>")
       file.write("</body>")
       i += 1
