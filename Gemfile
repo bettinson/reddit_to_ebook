@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'kitabu'
-gem 'sinatra'
+gem 'sinatra', '~> 2.0.1'
 gem "redd", "~> 0.7"
 gem 'byebug'
 gem 'mail'
