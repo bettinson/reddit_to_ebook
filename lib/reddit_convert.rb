@@ -25,14 +25,17 @@ module RedditToBook
     i = 0
     # File would be a hash of the subreddit on current day
     # If it exists we would load that first?
-    file = File.new("./#{subreddit} #{Time.now}.md", 'w')
-    file.write("# #{post.title} \n\n\n")
+    file = File.new("./#{subreddit} #{Time.now}.html", 'w')
+    file.write("<h1> #{post.title} </h1>")
+    
     while comments_of_top_post[i]
+      file.write("<body>")
       file.write(comments_of_top_post[i])
-      file.write("\n\n ===*=== \n\n")
+      file.write("<br><br> ===*=== <br><br>")
+      file.write("</body>")
       i += 1
     end
-
+    
     return file
     # system("cd mybook && kitabu export")
   end
